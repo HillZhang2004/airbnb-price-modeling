@@ -274,7 +274,7 @@ ggplot(data = airbnb) + geom_density(aes(x = realSum)) +
        y = "Density")
 ```
 
-![](/Users/hillll/Projects/airbnb-price-modeling/docs/Airbnb_Pricing_Project_files/figure-gfm/unnamed-chunk-6-1.png)<!-- -->
+![](/Users/hillll/Projects/airbnb-price-modeling/docs/Report_files/figure-gfm/unnamed-chunk-6-1.png)<!-- -->
 
 The lower-priced listings are concentrated near the origin with a sharp
 peak. The plot also displays a long tail extending toward higher prices.
@@ -336,7 +336,7 @@ ggplot(data = airbnb_norm) + geom_bar(aes(fill = day_type, x = city), position =
     fill = "Day Type")
 ```
 
-![](/Users/hillll/Projects/airbnb-price-modeling/docs/Airbnb_Pricing_Project_files/figure-gfm/unnamed-chunk-9-1.png)<!-- -->
+![](/Users/hillll/Projects/airbnb-price-modeling/docs/Report_files/figure-gfm/unnamed-chunk-9-1.png)<!-- -->
 
 Notably, cities like London and Paris have a high volume of listings
 regardless of the day, indicating their popularity as tourist
@@ -357,7 +357,7 @@ ggplot(data = airbnb_norm) + geom_boxplot(aes(x = city, y = realSum, fill = day_
        fill = "Day Type")
 ```
 
-![](/Users/hillll/Projects/airbnb-price-modeling/docs/Airbnb_Pricing_Project_files/figure-gfm/unnamed-chunk-10-1.png)<!-- -->
+![](/Users/hillll/Projects/airbnb-price-modeling/docs/Report_files/figure-gfm/unnamed-chunk-10-1.png)<!-- -->
 
 There is no significant difference in median listing prices between
 weekdays and weekends, which contradicts the common expectation of
@@ -405,7 +405,7 @@ ggplot(airbnb_counts, aes(x = city, y = percentage, fill = room_type)) +
        title = "Distribution of Airbnb Room Types Across European Cities") 
 ```
 
-![](/Users/hillll/Projects/airbnb-price-modeling/docs/Airbnb_Pricing_Project_files/figure-gfm/unnamed-chunk-11-1.png)<!-- -->
+![](/Users/hillll/Projects/airbnb-price-modeling/docs/Report_files/figure-gfm/unnamed-chunk-11-1.png)<!-- -->
 
 From the composition chart, we could obsevere significant differences in
 the proportion of the room type accross cities. The vast majority (above
@@ -434,7 +434,7 @@ ggplot(data = airbnb_norm, aes(x = city, y = realSum, fill = room_type)) +
        fill = "Room Type")
 ```
 
-![](/Users/hillll/Projects/airbnb-price-modeling/docs/Airbnb_Pricing_Project_files/figure-gfm/unnamed-chunk-12-1.png)<!-- -->
+![](/Users/hillll/Projects/airbnb-price-modeling/docs/Report_files/figure-gfm/unnamed-chunk-12-1.png)<!-- -->
 
 The boxplot presents a direct comparison of daily listing prices
 segmented by room type across these cities. It shows that entire
@@ -472,7 +472,7 @@ dist_realSum <- ggplot(data = airbnb_norm, aes(x = dist, y = realSum, color = ci
 dist_realSum
 ```
 
-![](/Users/hillll/Projects/airbnb-price-modeling/docs/Airbnb_Pricing_Project_files/figure-gfm/unnamed-chunk-13-1.png)<!-- -->
+![](/Users/hillll/Projects/airbnb-price-modeling/docs/Report_files/figure-gfm/unnamed-chunk-13-1.png)<!-- -->
 
 ``` r
 metrodist_realSum <- ggplot(data = airbnb_norm, aes(x = metro_dist, y = realSum, color = city)) +
@@ -482,7 +482,7 @@ metrodist_realSum <- ggplot(data = airbnb_norm, aes(x = metro_dist, y = realSum,
 metrodist_realSum
 ```
 
-![](/Users/hillll/Projects/airbnb-price-modeling/docs/Airbnb_Pricing_Project_files/figure-gfm/unnamed-chunk-13-2.png)<!-- -->
+![](/Users/hillll/Projects/airbnb-price-modeling/docs/Report_files/figure-gfm/unnamed-chunk-13-2.png)<!-- -->
 
 The trend lines clearly demonstrate that closer proximity to city
 centers and metro stations significantly increases Airbnb listing
@@ -503,7 +503,7 @@ attr_realSum <- ggplot(data = airbnb_norm, aes(x = attr_index_norm, y = realSum,
 attr_realSum
 ```
 
-![](/Users/hillll/Projects/airbnb-price-modeling/docs/Airbnb_Pricing_Project_files/figure-gfm/unnamed-chunk-14-1.png)<!-- -->
+![](/Users/hillll/Projects/airbnb-price-modeling/docs/Report_files/figure-gfm/unnamed-chunk-14-1.png)<!-- -->
 
 ``` r
 rest_realSum <- ggplot(data = airbnb_norm, aes(x = rest_index_norm, y = realSum, color = city)) +
@@ -513,7 +513,7 @@ rest_realSum <- ggplot(data = airbnb_norm, aes(x = rest_index_norm, y = realSum,
 rest_realSum
 ```
 
-![](/Users/hillll/Projects/airbnb-price-modeling/docs/Airbnb_Pricing_Project_files/figure-gfm/unnamed-chunk-14-2.png)<!-- -->
+![](/Users/hillll/Projects/airbnb-price-modeling/docs/Report_files/figure-gfm/unnamed-chunk-14-2.png)<!-- -->
 
 Our findings indicate that listings placed in areas with a higher
 concentration of attractions and restaurants also lead to higher prices.
@@ -625,7 +625,7 @@ ggplot(data = london_price_pred_resid, aes(x = pred, y = realSum)) +
   labs(x = "Predicted Prices (€)", y = "Actual Prices", title = "Plot of Actual vs. Predicted Prices")
 ```
 
-![](/Users/hillll/Projects/airbnb-price-modeling/docs/Airbnb_Pricing_Project_files/figure-gfm/unnamed-chunk-16-1.png)<!-- -->
+![](/Users/hillll/Projects/airbnb-price-modeling/docs/Report_files/figure-gfm/unnamed-chunk-16-1.png)<!-- -->
 
 The plot of actual versus predicted prices demonstrates that the linear
 model predicts lower-priced listings relatively well, as the actual data
@@ -645,7 +645,7 @@ ggplot(london_price_pred_resid, aes(x = pred, y = resid)) +
   labs(x = "Predicted Prices (€)", y = "Residuals", title = "Residual Plot for London Airbnb Listings") 
 ```
 
-![](/Users/hillll/Projects/airbnb-price-modeling/docs/Airbnb_Pricing_Project_files/figure-gfm/unnamed-chunk-17-1.png)<!-- -->
+![](/Users/hillll/Projects/airbnb-price-modeling/docs/Report_files/figure-gfm/unnamed-chunk-17-1.png)<!-- -->
 
 The majority of residuals are ditributed around the zero line,
 suggesting that the model’s predictions are unbiased on average.
@@ -724,7 +724,7 @@ ggplot(data = log_london_price_pred_resid, aes(x = pred, y = realSum)) +
   labs(x = "Predicted Prices in Log Scale", y = "Actual Prices in Log Scale", title = "Plot of Actual vs. Predicted Prices in Log Scale")
 ```
 
-![](/Users/hillll/Projects/airbnb-price-modeling/docs/Airbnb_Pricing_Project_files/figure-gfm/unnamed-chunk-19-1.png)<!-- -->
+![](/Users/hillll/Projects/airbnb-price-modeling/docs/Report_files/figure-gfm/unnamed-chunk-19-1.png)<!-- -->
 
 The plot of actual versus predicted prices on a log scale demonstrates a
 strong linear relationship, with most data points closely aligned with
@@ -738,7 +738,7 @@ ggplot(log_london_price_pred_resid, aes(x = pred, y = resid)) +
   labs(x = "Predicted Prices in Log Scale", y = "Residuals", title = "Residual Plot for London Airbnb Listings") 
 ```
 
-![](/Users/hillll/Projects/airbnb-price-modeling/docs/Airbnb_Pricing_Project_files/figure-gfm/unnamed-chunk-20-1.png)<!-- -->
+![](/Users/hillll/Projects/airbnb-price-modeling/docs/Report_files/figure-gfm/unnamed-chunk-20-1.png)<!-- -->
 
 Residuals are centered around zero without a discernible pattern, which
 supports the validity of the regression results. However, some outliers
