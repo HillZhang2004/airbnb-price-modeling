@@ -1,47 +1,69 @@
-# Airbnb Price Modeling (R)
+# Airbnb Pricing in European Cities (R)
 
-Predict Airbnb listing prices from tabular listing features.
-This repo is set up to be fast for a recruiter to scan and easy to reproduce.
+Predict nightly Airbnb listing prices from tabular listing features across major European cities.
 
-## TL;DR
-
-- **Goal:** estimate nightly price from listing attributes
-- **Workflow:** clean data, build features, fit baseline regression, then regularize with lasso or ridge
-- **Output:** a readable report in `docs/`, and the full source analysis in `report/`
-
-## What this project shows
-
-- Practical data cleaning on a real world dataset
-- Feature engineering for mixed numeric and categorical inputs
-- Baseline modeling plus regularization with `glmnet`
-- Simple, honest evaluation on a held out test split
-- Clear communication through a rendered report
+**Fast scan:** data cleaning → feature engineering → baseline regression → lasso/ridge regularization → held-out evaluation → readable report.
 
 ## Quick links
 
-- **Report (HTML):** `docs/Report.html`
-- **Report (PDF, optional):** `docs/Report.pdf`
-- **Source analysis:** `report/Airbnb_Pricing_Project.Rmd`
+- **Report (HTML):** [docs/Report.html](docs/Report.html)
+- **Report (Markdown):** [docs/Report.md](docs/Report.md)
+- **Source analysis (Rmd):** [report/Airbnb_Pricing_Project.Rmd](report/Airbnb_Pricing_Project.Rmd)
 
-## Run it locally
+## What this project shows
+
+- Real-world tabular data cleaning and joining across many CSV files
+- Feature engineering for mixed numeric and categorical inputs
+- Baseline linear regression (plus log price transform for skew)
+- Regularization with lasso/ridge via `glmnet` for stability
+- Clear reporting with plots and reproducible execution
+
+## Reproduce locally
+
+One-command render:
+
+```bash
+R -q -f render_report.R
+```
+
+Or inside R:
 
 ```r
-install.packages(c("tidyverse","caret","glmnet","knitr","rmarkdown","here"))
-rmarkdown::render("report/Airbnb_Pricing_Project.Rmd", output_dir = "docs")
+options(repos = c(CRAN = "https://cloud.r-project.org"))
+pkgs <- c("tidyverse","caret","glmnet","knitr","rmarkdown","here")
+install.packages(setdiff(pkgs, rownames(installed.packages())))
+
+rmarkdown::render(
+  "report/Airbnb_Pricing_Project.Rmd",
+  output_dir = "docs",
+  knit_root_dir = here::here()
+)
 ```
 
 ## Data
 
-This repository does **not** include the raw dataset.
-Place your CSVs in:
+This repository does **not** include the raw dataset files.
 
-- `data/raw/listings.csv`
-- `data/raw/calendar.csv`
-- `data/raw/reviews.csv`
+Place the city CSVs in:
 
-If your filenames differ, update the paths in the report under **Data Loading**.
+`data/raw/`
 
-## Repository structure
+The report expects these files (weekdays + weekends for each city):
+
+- `amsterdam_weekdays.csv`, `amsterdam_weekends.csv`
+- `athens_weekdays.csv`, `athens_weekends.csv`
+- `barcelona_weekdays.csv`, `barcelona_weekends.csv`
+- `berlin_weekdays.csv`, `berlin_weekends.csv`
+- `budapest_weekdays.csv`, `budapest_weekends.csv`
+- `lisbon_weekdays.csv`, `lisbon_weekends.csv`
+- `london_weekdays.csv`, `london_weekends.csv`
+- `paris_weekdays.csv`, `paris_weekends.csv`
+- `rome_weekdays.csv`, `rome_weekends.csv`
+- `vienna_weekdays.csv`, `vienna_weekends.csv`
+
+`data/` is git-ignored to avoid committing large raw files.
+
+## Repo structure
 
 ```
 .
@@ -49,14 +71,10 @@ If your filenames differ, update the paths in the report under **Data Loading**.
 │   └── Airbnb_Pricing_Project.Rmd
 ├── docs/
 │   ├── Report.html
-│   └── Report.pdf
-├── data/
-│   └── raw/            # not tracked in git
+│   ├── Report.md
+│   └── Airbnb_Pricing_Project_files/   # images used by the HTML
+├── data/raw/                           # not tracked in git
+├── render_report.R
 ├── .gitignore
 └── README.md
 ```
-
-## Notes
-
-- If you want tighter reproducibility, add `renv` and commit `renv.lock`.
-- This repo is written as a standalone project (no course or instructor references).
