@@ -1,0 +1,13 @@
+# Data (do not commit)
+data/
+*.csv
+
+# R
+.Rhistory
+.RData
+.Rproj.user/
+
+
+
+# macOS
+.DS_Store
